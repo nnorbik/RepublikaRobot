@@ -106,8 +106,8 @@ namespace Robot {
 
     //% block="Sevreni celisti $choice"
     export function SevreniCelisti(choice: Celisti): void {
-        radio.sendValue("gripper", 2)
-        basic.showNumber(choice)
+        radio.sendValue("gripper", choice)
+
         chksm_out += 1
 
         while (chksm_out != chksm_in) {
