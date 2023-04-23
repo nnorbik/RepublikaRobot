@@ -45,20 +45,17 @@ namespace Robot {
         }
         basic.showString("I")
         radio.sendValue("init", chksm_out)
-        chksm_out += 1
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-                if (chksm_in == -1) {
-                basic.showString("Error " + chksm_out)
-                while (!(input.logoIsPressed())) {
-                }
-                Robot.UkonceniProgramuRobota()
-
-            } else {
-                basic.showString("W")
-            }
         }
+        
+        chksm_out += 1
+        
+        while (chksm_out != chksm_in) {
+            chksm_in = radio.receiveNumber()
+        }
+        basic.showString("W")
     }
 
     //% block="Vzdalenost ramene $vzdalenost| Vyska ramene $vyska"
@@ -66,41 +63,53 @@ namespace Robot {
     //% vzdalenost.min=7 vzdalenost.max=16
     //% vyska.min=0 vyska.max=10
     export function NastavitRameno(vzdalenost: number, vyska: number): void {
-        // Add code here
+        // Add code here        
+        if (vzdalenost > 16) {
+            vzdalenost = 16
+        }        
+        if (vzdalenost < 7) {
+            vzdalenost = 7
+        }
+        if (vyska > 10) {
+            vyska = 10
+        }
+        if (vyska < 0) {
+            vyska = 0
+        }
+
         radio.sendValue("rameno", (vzdalenost + 10) * 100 + (vyska + 10))
-        chksm_out += 1
         
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            if (chksm_in == -1) {
-                basic.showString("Error " + chksm_out)
-                while (!(input.logoIsPressed())) {
-                }
-                Robot.UkonceniProgramuRobota()
+        }
 
-            } else {
-                basic.showString("W")
-            }
+        chksm_out += 1
+
+        while (chksm_out != chksm_in) {
+            chksm_in = radio.receiveNumber()
         }
     }
 
     //% block="Otoceni ramene $otoceni \\°"
     //% otoceni.min=-60 otoceni.max=60
     export function UhelRamene(otoceni: number): void {
+        if (otoceni > 60) {
+            otoceni = 60
+        }
+        if (otoceni < -60) {
+            otoceni = -60
+        }
+
         radio.sendValue("uhel", otoceni)
-        chksm_out += 1
         
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            if (chksm_in == -1) {
-                basic.showString("Error " + chksm_out)
-                while (!(input.logoIsPressed())) {
-                }
-                Robot.UkonceniProgramuRobota()
+        }
 
-            } else {
-                basic.showString("W")
-            }
+        chksm_out += 1
+
+        while (chksm_out != chksm_in) {
+            chksm_in = radio.receiveNumber()
         }
     }
 
@@ -111,26 +120,21 @@ namespace Robot {
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            if (chksm_in == -1) {
-                basic.showString("Error " + chksm_out)
-                while (!(input.logoIsPressed())) {
-                }
-                Robot.UkonceniProgramuRobota()
+        }
 
-            } else {
-                basic.showString("W")
-            }
+        chksm_out += 1
+
+        while (chksm_out != chksm_in) {
+            chksm_in = radio.receiveNumber()
         }
     }
 
     //% block="Ukonceni programu robota"
     export function UkonceniProgramuRobota(): void {
         radio.sendValue("end", 0)
-        chksm_out += 1
         basic.showString("Hotovo")
         chksm_out = 0
         chksm_in = 0
-
     }
 
 }
