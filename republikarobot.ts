@@ -5,6 +5,10 @@
 * 
 */
 
+/**
+* Enum for gripper
+*/
+
 enum Celisti {
     //% block="uplne"
     Uplne,
