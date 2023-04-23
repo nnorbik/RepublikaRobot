@@ -49,9 +49,10 @@ namespace Robot {
         chksm_out += 1
         
         while (chksm_out != chksm_in) {
-            chksm_in = radio.receiveNumber()       
+            chksm_in = radio.receiveNumber()
+            basic.showString("W")
         }
-        basic.showString("W")
+        
     }
 
     //% block="Vzdalenost ramene $vzdalenost| Vyska ramene $vyska"
