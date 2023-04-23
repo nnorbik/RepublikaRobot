@@ -1,5 +1,5 @@
 
-> Open this page at [https://nnorbik.github.io/republikarobot/](https://nnorbik.github.io/republikarobot/)
+> Open this page at [https://github.com/nnorbik/RepublikaRobot](https://github.com/nnorbik/RepublikaRobot)
 
 ## Use as Extension
 
