@@ -50,8 +50,7 @@ namespace Robot {
         
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            basic.showNumber(chksm_in)
-            basic.showNumber(chksm_out)
+            basic.showString("W")
         }
         basic.showString("W")
     }
@@ -81,8 +80,7 @@ namespace Robot {
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            basic.showNumber(chksm_in)
-            basic.showNumber(chksm_out)
+            basic.showString("R")
         }
     }
 
@@ -102,20 +100,19 @@ namespace Robot {
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            basic.showNumber(chksm_in)
-            basic.showNumber(chksm_out)
+            basic.showString("U")
         }
     }
 
     //% block="Sevreni celisti $choice"
     export function SevreniCelisti(choice: Celisti): void {
-        radio.sendValue("gripper", 2)
+        radio.sendValue("gripper", choice)
 
         chksm_out += 1
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            basic.showNumber(choice)
+            basic.showString("G")
         }
     }
 
