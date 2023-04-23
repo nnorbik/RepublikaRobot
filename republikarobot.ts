@@ -32,7 +32,7 @@ namespace Robot {
 
     export function InicializaceRobota(radiokanal: number): void {
         chksm_out = 0
-        chksm_in = 0
+        chksm_in = -1
         radio.setGroup(radiokanal)
         basic.showLeds(`
      . . . . .
@@ -46,10 +46,6 @@ namespace Robot {
         basic.showString("I")
         radio.sendValue("init", chksm_out)
 
-        while (chksm_out != chksm_in) {
-            chksm_in = radio.receiveNumber()
-        }
-        
         chksm_out += 1
         
         while (chksm_out != chksm_in) {
