@@ -49,8 +49,7 @@ namespace Robot {
         chksm_out += 1
         
         while (chksm_out != chksm_in) {
-            chksm_in = radio.receiveNumber()
-            basic.showString("W")
+            chksm_in = radio.receiveNumber()       
         }
         basic.showString("W")
     }
@@ -80,7 +79,6 @@ namespace Robot {
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            basic.showString("R")
         }
     }
 
@@ -100,7 +98,6 @@ namespace Robot {
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            basic.showString("U")
         }
     }
 
