@@ -109,7 +109,7 @@ namespace Robot {
 
     //% block="Sevreni celisti $choice"
     export function SevreniCelisti(choice: Celisti): void {
-        radio.sendValue("end", 0)
+        radio.sendValue("gripper", 0)
 
         chksm_out += 1
 
