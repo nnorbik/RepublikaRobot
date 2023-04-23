@@ -66,16 +66,16 @@ namespace Robot {
     export function NastavitRameno(vzdalenost: number, vyska: number): void {
         // Add code here        
         if (vzdalenost > 16) {
-            vzdalenost = 16
+            vzdalenost = 16;
         }        
         if (vzdalenost < 7) {
-            vzdalenost = 7
+            vzdalenost = 7;
         }
         if (vyska > 10) {
-            vyska = 10
+            vyska = 10;
         }
         if (vyska < 0) {
-            vyska = 0
+            vyska = 0;
         }
 
         radio.sendValue("rameno", (vzdalenost + 10) * 100 + (vyska + 10))
@@ -92,10 +92,10 @@ namespace Robot {
     //% otoceni.min=-60 otoceni.max=60
     export function UhelRamene(otoceni: number): void {
         if (otoceni > 60) {
-            otoceni = 60
+            otoceni = 60;
         }
         if (otoceni < -60) {
-            otoceni = -60
+            otoceni = -60;
         }
 
         radio.sendValue("uhel", otoceni)
@@ -109,8 +109,8 @@ namespace Robot {
     }
 
     //% block="Sevreni celisti $choice"
-    export function SevreniCelisti(choice: Celisti): void {
-        radio.sendValue("gripper", choice)
+    export function SevreniCelisti(vyber: Celisti): void {
+        radio.sendValue("gripper", vyber)
 
         chksm_out += 1
 
