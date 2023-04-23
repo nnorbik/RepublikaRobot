@@ -32,7 +32,7 @@ namespace Robot {
 
     export function InicializaceRobota(radiokanal: number): void {
         chksm_out = 0
-        chksm_in = -1
+        chksm_in = -10
         radio.setGroup(radiokanal)
         basic.showLeds(`
      . . . . .
@@ -77,12 +77,6 @@ namespace Robot {
 
         radio.sendValue("rameno", (vzdalenost + 10) * 100 + (vyska + 10))
         
-        while (chksm_out != chksm_in) {
-            chksm_in = radio.receiveNumber()
-            basic.showNumber(chksm_in)
-            basic.showNumber(chksm_out)
-        }
-
         chksm_out += 1
 
         while (chksm_out != chksm_in) {
@@ -104,30 +98,25 @@ namespace Robot {
 
         radio.sendValue("uhel", otoceni)
         
-        while (chksm_out != chksm_in) {
-            chksm_in = radio.receiveNumber()
-        }
-
         chksm_out += 1
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
+            basic.showNumber(chksm_in)
+            basic.showNumber(chksm_out)
         }
     }
 
     //% block="Sevreni celisti $choice"
     export function SevreniCelisti(choice: Celisti): void {
         radio.sendValue("end", 0)
-        chksm_out += 1
-
-        while (chksm_out != chksm_in) {
-            chksm_in = radio.receiveNumber()
-        }
 
         chksm_out += 1
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
+            basic.showNumber(chksm_in)
+            basic.showNumber(chksm_out)
         }
     }
 
@@ -136,7 +125,7 @@ namespace Robot {
         radio.sendValue("end", 0)
         basic.showString("Hotovo")
         chksm_out = 0
-        chksm_in = 0
+        chksm_in = -10
     }
 
 }
