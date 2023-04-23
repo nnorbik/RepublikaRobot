@@ -115,8 +115,7 @@ namespace Robot {
 
         while (chksm_out != chksm_in) {
             chksm_in = radio.receiveNumber()
-            basic.showNumber(chksm_in)
-            basic.showNumber(chksm_out)
+            basic.showNumber(choice)
         }
     }
 
