@@ -109,8 +109,8 @@ namespace Robot {
     }
 
     //% block="Sevreni celisti $choice"
-    export function SevreniCelisti(vyber: Celisti): void {
-        radio.sendValue("gripper", vyber)
+    export function SevreniCelisti(choice: Celisti): void {
+        radio.sendValue("gripper", choice)
 
         chksm_out += 1
 
